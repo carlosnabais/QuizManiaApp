@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
+	<title>QuizMania
 	</title>
 	<link rel="stylesheet" type="text/css" href="style.css">  
 </head>
@@ -27,8 +27,8 @@
 						else{
 							//if no user is logged in
 							echo'<form action="includes/login.inc.php" method="POST">
-								<input type="text" name="userInput" placeholder="Username/e-mail...">
-								<input type="password" name="passInput" placeholder="Password...">
+								<input type="text" name="userInput" placeholder="Username/e-mail..." required>
+								<input type="password" name="passInput" placeholder="Password..." required>
 								<button type="submit" name="submit">Log In</button>
 								</form>
 								<a href="register.php">Register</a>';
