@@ -109,7 +109,12 @@ input, select {
 /*---Our Code---*/
 
 
-
+img{
+	border-radius:50px;		
+	display: block;
+    margin: 0 auto;
+    height: 50%;
+}
 .main-wrapper{
 	margin: 0 auto;
 	width: 1000px;
@@ -141,8 +146,43 @@ header nav ul li a{
 	font-size: 150%;
 	color: #fff;
 	line-height: 63px;
+	
 }
-
+div.unorderlist{
+	padding: 35px;
+	margin: 50px; 
+	border-top: 10px; 
+	border-bottom: 10px;
+	border-right: 0px;
+	border-left: 0px;
+	border-width: 100%;
+	border-style: double;
+	border-color: black;
+	list-style-type: none;
+}
+a.startquiz:active{
+	background-color: blue;
+}
+a.startquiz:hover{
+	margin: 5px;
+}
+a.startquiz:link  {
+    background-color: #A9A9A9;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+a.startquiz:visited{
+	text-decoration: underline;
+	background-color: #A9A9A9;
+    color: blue;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
 header .nav-login{
 	float:right;
 }
