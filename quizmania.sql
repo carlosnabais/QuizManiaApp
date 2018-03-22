@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 03:28 AM
+-- Generation Time: Mar 22, 2018 at 10:10 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -27,6 +27,27 @@ CREATE DATABASE quizmania;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `categoryID` int(3) NOT NULL,
+  `categoryTitle` varchar(25) NOT NULL,
+  `categoryLevel` varchar(20) DEFAULT NULL,
+  `dateUpdated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`categoryID`, `categoryTitle`, `categoryLevel`, `dateUpdated`) VALUES
+(1, 'Sports', 'Low', '2018-03-22'),
+(2, 'Biology', 'Intermediate', '2018-03-23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -46,12 +67,18 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userID`, `firstName`, `lastName`, `email`, `username`, `users_password`, `adminAccess`) VALUES
 (2, 'testing', 'user', 'testUser@robot.com', 'testUser94', '$2y$10$yk2wnrE9V2cDq0ek92qfouu1suJOyxkjmbsGcFARcNBMlGrsItIIu', 0),
-(3, 'Evan', 'Warwick', 'ewarwi200@caledonian.ac.uk', 'ewarwi200', '$2y$10$ZWowbOVM/rxrpHZB8yJKuOgkUuSUzAznTWKFOPOFk6xelFg/gTuuG', 0),
+(3, 'Evan', 'Warwick', 'ewarwi200@caledonian.ac.uk', 'ewarwi200', '$2y$10$ZWowbOVM/rxrpHZB8yJKuOgkUuSUzAznTWKFOPOFk6xelFg/gTuuG', 1),
 (4, 'adam', 'Payton', 'adPay@Admin.com', 'Payton_Admin', '$2y$10$zvqLWnng0b91M6hDnXXOvuvOc5ZiaKx5tR/7RSntGe2zHI.ko6QFC', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`categoryID`);
 
 --
 -- Indexes for table `users`
@@ -62,6 +89,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `categoryID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
