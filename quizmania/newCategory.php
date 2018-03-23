@@ -5,7 +5,7 @@
 <section class="main-container">
 		<div class="main-wrapper">
 			<h2>New Category</h2>
-			<form class="register-form" action="includes/createCategory.inc.php" method="POST">
+			<form class="register-form" action="includes/newCategory.inc.php" method="POST">
 				<label for="catTitle"><b>Category Title: </b></label>
 				<input type="text" name="catTitle" placeholder="Title..." required><br>
 				<label for="catLevel"><b>Level of Ability: </b></label>
