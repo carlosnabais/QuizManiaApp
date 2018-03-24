@@ -2,6 +2,20 @@
 	include_once 'header.php';
 	include_once 'includes/dbh.inc.php';
 ?>
+
+<?php
+//test if user is admin to stop standard user from accessing feature
+if(isset($_SESSION['uID'])){
+					$sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
+					$result = mysqli_query($conn, $sql);
+					$resultCheck = mysqli_fetch_array($result);
+					//echo 'You are logged in '.$resultCheck['username'];
+				if ($resultCheck['adminAccess'] == false ){
+          header("Location: index.php");
+        }
+}
+?>
+
 <?php
   //Populating user drop down select with username array
   $sql = "SELECT * FROM `Users` WHERE `adminAccess` = 0";
@@ -9,6 +23,7 @@
   while($array[] = $query-> fetch_object());
   array_pop($array);
 ?>
+
 	<section class="main-container">
 		<div class="main-wrapper">
 			<h2>Create Admin</h2>
@@ -23,7 +38,7 @@
 			</form>
 		</div>
 	</section>
-	
+  
 <?php
 	include_once 'footer.php';
 ?>

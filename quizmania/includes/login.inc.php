@@ -39,6 +39,7 @@ if(isset($_POST['submit'])){
 					$_SESSION['lName']=$row['lastName'];
 					$_SESSION['eMail']=$row['email'];
 					$_SESSION['userName']=$row['username'];
+					$_SESSION['adminAcc']=$row['adminAccess'];
 					header("Location: ../index.php?login=success_type=user");
 					exit();
 					}
@@ -48,6 +49,7 @@ if(isset($_POST['submit'])){
 						$_SESSION['lName']=$row['lastName'];
 						$_SESSION['eMail']=$row['email'];
 						$_SESSION['userName']=$row['username'];
+						$_SESSION['adminAcc']=$row['adminAcc'];
 						header("Location: ../index.php?login=success_type=admin");
 						exit();
 					}
