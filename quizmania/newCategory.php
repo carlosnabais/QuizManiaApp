@@ -1,7 +1,20 @@
 <?php
 	include_once 'header.php';
-	include_once 'includes/dbh.inc.php';
 ?>
+
+<?php
+//test if user is admin to stop standard user from accessing feature
+if(isset($_SESSION['uID'])){
+					$sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
+					$result = mysqli_query($conn, $sql);
+					$resultCheck = mysqli_fetch_array($result);
+					//echo 'You are logged in '.$resultCheck['username'];
+				if ($resultCheck['adminAccess'] == false ){
+          header("Location: index.php");
+        }
+}
+?>
+
 <section class="main-container">
 		<div class="main-wrapper">
 			<h2>New Category</h2>

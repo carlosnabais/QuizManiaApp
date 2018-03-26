@@ -1,5 +1,6 @@
 <?php
 	session_start();
+  include_once 'includes/dbh.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +20,24 @@
 				<div class="nav-login">
 					<?php
 						if(isset($_SESSION['uID'])){
-							//if user is logged in
-							echo '<form action="includes/logout.inc.php" method="POST">
-								<button type="submit" name="submit">Logout</button>
-								</form>';
+              $sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
+              $result = mysqli_query($conn, $sql);
+              $resultCheck = mysqli_fetch_array($result);
+              if ($resultCheck['adminAccess'] == false ){
+                 //if user is logged in
+                echo '<form action="includes/logout.inc.php" method="POST">
+                  <button type="submit" name="submit">Logout</button>
+                  </form>';
+              }
+              elseif($resultCheck['adminAccess'] == true){
+                echo '<a href="newAdmin.php">New Admin</a>
+                       <a href="newCategory.php">New Category</a>
+                       <a href="newQuestion.php">New Question</a>
+                       <form action="includes/logout.inc.php" method="POST">
+                  <button type="submit" name="submit">Logout</button>
+                  </form>';
+              }
+							
 						}
 						else{
 							//if no user is logged in
