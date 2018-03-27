@@ -108,7 +108,6 @@ input, select {
 
 /*---Our Code---*/
 
-
 img{
 	border-radius:50px;		
 	display: block;
@@ -129,7 +128,7 @@ body{
 header nav{
 	width: 100%;
 	height: 60px;
-	background-color: #DC7633;
+	background-color: #C0392B;
 }
 header nav ul{
 	float: left;
@@ -149,8 +148,8 @@ header nav ul li a{
 	
 }
 div.unorderlist{
+	width: 100%;
 	padding: 35px;
-	margin: 50px; 
 	border-top: 10px; 
 	border-bottom: 10px;
 	border-right: 0px;
@@ -225,10 +224,10 @@ header .nav-login a{
 	height: 60px;
 	padding: 0px 10px;
 	border: none;
-	background-color: #73C6B6;
+	background-color: white;
 	font-family: sans-serif;
 	font-size: 16px;
-	color: #111;
+	color: black;
 	line-height: 63px;
 	cursor: pointer;
 }
@@ -294,6 +293,69 @@ header .nav-login a{
 	cursor: pointer;
 }
 .register-form button:hover{
+	opacity: 0.75;
+	color: black;
+	border-style: solid;
+	border-color: gray;
+}
+
+/*-------Index Page----*/
+ul.adminLink{
+	position: relative;
+	right: 50px;
+}
+
+/*----add question page----*/
+.question-form{
+	width: 800px;
+	margin: 0 auto;
+	padding-top: 30px;
+	text-align: center;
+}
+.question-form label{
+	float: left;
+}
+
+form.question-form input{
+	width: 100%;
+	/*height: 40px;
+	padding: 0px 5%;
+	margin-bottom: 4px;
+	border: none;
+	background-color: #fff;
+	font-family: arial;
+	font-size: 16px;
+	color: #111;
+	line-height: 40px;*/
+    padding: 12px 22px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-radius: 50px;
+}
+div.question-input input{
+	padding: 60px ;
+	text-align: left;
+}
+form.question-form button{
+	display: block;
+	margin: 0 auto;
+	margin-top: 15px;
+	width: 30%;
+	height: 40px;
+	border: none;
+	background-color: #73C6B6;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+
+}
+.question-form button:hover{
 	opacity: 0.75;
 	color: black;
 	border-style: solid;
