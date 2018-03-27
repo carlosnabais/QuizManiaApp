@@ -1,22 +1,42 @@
 <?php
 
   if(isset($_POST['submit'])){
-    
-    include ("db.inc.php");
-    
+	
+	include ("dbh.inc.php");
+	
+	//Prohibit malicious code
     $title = mysqli_real_escape_string($conn, $_POST['catTitle']);
-    $level = mysqli_real_escape_string($conn, $_POST['abilityLevel']);
+    $level =  mysqli_real_escape_string($conn, $_POST['abilityLevel']);
     $date = date("Y-m-d");
     
+    //Check for empty fields
     if(empty($title)){
       header("Location: ../newCategory.php?title=empty");
-		exit();
+      exit();
     }
     else{
-      $sql = "INSERT INTO `categories` (`categoryID`,`categoryTitle`,`categoryLevel`,`dateUpdated`) VALUES (NULL, '$title', '$level', '$date')";
-      mysqli_query($conn, $sql);
-      header("Location: ../newQuestion.php");
-      exit();
+      //Check if input characters are valid
+      if(!preg_match("/^[a-zA-Z]*$/", $title)){
+        header("Location: ../newCategory.php?title=invalid");
+        exit();
+      }
+      else{
+          //check if title is taken
+          $sql = "SELECT * FROM Categories WHERE categoryTitle='$title'";
+          $result = mysqli_query($conn, $sql);
+          $resultCheck = mysqli_num_rows($result);
+          if($resultCheck > 0){
+            header("Location: ../newCategory.php?title=titleTaken");
+            exit();
+          }
+          else{
+            //Insert the category into the database
+            $sql = "INSERT INTO `categories` (`categoryID`,`categoryTitle`,`categoryLevel`,`dateUpdated`) VALUES (NULL, '$title', '$level', '$date')";
+            mysqli_query($conn, $sql);
+            header("Location: ../newQuestion.php?category=success");
+            exit();
+          }
+      }
     }
   }
   else{
