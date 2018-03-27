@@ -20,7 +20,7 @@
     }
     else{
       //Check if input characters are valid
-      if(!preg_match("/^[a-zA-Z]*$/", $qText) || !preg_match("/^[a-zA-Z]*$/", $ansOne) || 
+      if(!preg_match("/^[a-zA-Z]*$/", $ansOne) || 
       !preg_match("/^[a-zA-Z]*$/", $ansTwo) || !preg_match("/^[a-zA-Z]*$/", $ansThree) || !preg_match("/^[a-zA-Z]*$/", $ansFour)){
         header("Location: ../newQuestion.php?input=invalid");
         exit();

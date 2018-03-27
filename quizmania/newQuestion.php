@@ -14,6 +14,9 @@ if(isset($_SESSION['uID'])){
           header("Location: index.php");
         }
 }
+else{
+  header("Location: index.php");
+}
 ?>
 
 <?php
