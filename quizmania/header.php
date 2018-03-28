@@ -1,10 +1,10 @@
 <?php
 	session_start();
-<<<<<<< HEAD
+
 	include_once 'includes/dbh.inc.php';
-=======
+
   include_once 'includes/dbh.inc.php';
->>>>>>> 225ce07d73fde41e844dd38dc4628a694625e29e
+
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +25,7 @@
 					<?php
 					
 						if(isset($_SESSION['uID'])){
-<<<<<<< HEAD
-							$sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
+							/*$sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
 							$result = mysqli_query($conn, $sql);
 							$resultCheck = mysqli_fetch_array($result);
 							//if user is logged in
@@ -44,9 +43,8 @@
 							}							
 							echo '<form action="includes/logout.inc.php" method="POST">
 								<button type="submit" name="submit">Logout</button>
-								</form>';
+								</form>';*/
 
-=======
               $sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
               $result = mysqli_query($conn, $sql);
               $resultCheck = mysqli_fetch_array($result);
@@ -65,7 +63,7 @@
                   </form>';
               }
 							
->>>>>>> 225ce07d73fde41e844dd38dc4628a694625e29e
+
 						}
 						else{
 							//if no user is logged in
