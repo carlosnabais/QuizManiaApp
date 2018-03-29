@@ -58,6 +58,7 @@
                 echo '<a href="newAdmin.php">New Admin</a>
                        <a href="newCategory.php">New Category</a>
                        <a href="newQuestion.php">New Question</a>
+                       <a href="removeCategory.php">Remove Category</a>
                        <form action="includes/logout.inc.php" method="POST">
                   <button type="submit" name="submit">Logout</button>
                   </form>';
