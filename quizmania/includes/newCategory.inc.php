@@ -15,8 +15,10 @@
       exit();
     }
     else{
+      //Remove any accidental spaces
+      $title =trim($title);
       //Check if input characters are valid
-      if(!preg_match("/^[a-zA-Z]*$/", $title)){
+      if(!preg_match("/^[a-zA-Z0-9 \s]+$/", $title)){
         header("Location: ../newCategory.php?title=invalid");
         exit();
       }

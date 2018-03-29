@@ -76,7 +76,6 @@
 								<a href="register.php">Register</a>';
 						}
 					?>
-					<a href=""></a>
 				</div>
 			</div>
 		</nav>
