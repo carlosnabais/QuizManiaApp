@@ -20,8 +20,8 @@
     }
     else{
       //Check if input characters are valid
-      if(!preg_match("/^[a-zA-Z0-9 \s]+$/", $ansOne) || 
-      !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansTwo) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansThree) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansFour)){
+      if(!preg_match("/^[a-zA-Z0-9 \s]+$/", $ansOne) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansTwo) 
+        || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansThree) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansFour)){
         header("Location: ../newQuestion.php?input=invalid");
         exit();
       }
@@ -30,17 +30,14 @@
         $sql = "INSERT INTO `questions`(`questionID`, `categoryID`, `questionOutput`, `questionHint`) VALUES (NULL, '$catID', '$qText', '$qHint')";
         mysqli_query($conn, $sql);
         
-        //store the ID of the question for using with the answers
+        /*//store the ID of the question for using with the answers
         $sql = "SELECT `questionID` FROM `questions` WHERE `questionOutput` = '$qText';";
-        $questionID = mysqli_query($conn, $sql);
+        $qID = mysqli_query($conn, $sql);*/
         
         if($correctAns == 1){
-          //Insert answers into rows of their own
-          $sql = "INSERT INTO `answers`(`answerID`, `questionID`, `answerOutput`, `correct`) VALUES 
-          (NULL, '$questioinID', '$ansOne', '1'),
-          (NULL, '$questioinID', '$ansTwo', '0'), 
-          (NULL, '$questioinID', '$ansThree', '0'), 
-          (NULL, '$questioinID', '$ansFour', '0');";
+          //Insert answers 
+          $sql = "INSERT INTO `options`(`optionID`, `questionID`, `option_one`, `option_two`, `option_three`, `option_four`, `correct_option`) VALUES 
+          (NULL, '$result', '$ansOne', '$ansTwo', '$ansThree', '$ansFour', '$ansOne')";
           mysqli_query($conn, $sql);
           //does the admin wish to continue adding questions?
           if(isset($_POST['next'])){ //yes
@@ -53,12 +50,9 @@
           }
         }
         else if($correctAns == 2){
-          //Insert answers into rows of their own
-          $sql = "INSERT INTO `answers`(`answerID`, `questionID`, `answerOutput`, `correct`) VALUES 
-          (NULL, '$questioinID', '$ansOne', '0'),
-          (NULL, '$questioinID', '$ansTwo', '1'), 
-          (NULL, '$questioinID', '$ansThree', '0'), 
-          (NULL, '$questioinID', '$ansFour', '0');";
+          //Insert answers 
+          $sql = "INSERT INTO `options`(`optionID`, `questionID`, `option_one`, `option_two`, `option_three`, `option_four`, `correct_option`) VALUES 
+         (NULL, '$qID', '$ansOne', '$ansTwo', '$ansThree', '$ansFour', '$ansTwo')";
           mysqli_query($conn, $sql);
           //does the admin wish to continue adding questions?
           if(isset($_POST['next'])){ //yes
@@ -71,12 +65,9 @@
           }
         }
         else if($correctAns == 3){
-          //Insert answers into rows of their own
-          $sql = "INSERT INTO `answers`(`answerID`, `questionID`, `answerOutput`, `correct`) VALUES 
-          (NULL, '$questioinID', $ansOne, '0'),
-          (NULL, '$questioinID', $ansTwo, '0'), 
-          (NULL, '$questioinID', $ansThree, '1'), 
-          (NULL, '$questioinID', $ansFour, '0');";
+          //Insert answers 
+          $sql = "INSERT INTO `options`(`optionID`, `questionID`, `option_one`, `option_two`, `option_three`, `option_four`, `correct_option`) VALUES 
+          ((NULL, '$qID', '$ansOne', '$ansTwo', '$ansThree', '$ansFour', '$ansThree')";
           mysqli_query($conn, $sql);
           //does the admin wish to continue adding questions?
           if(isset($_POST['next'])){ //yes
@@ -89,12 +80,9 @@
           }
         }
         else if($correctAns == 4){
-          //Insert answers into rows of their own
-          $sql = "INSERT INTO `answers`(`answerID`, `questionID`, `answerOutput`, `correct`) VALUES 
-          (NULL, '$questioinID', $ansOne, '0'),
-          (NULL, '$questioinID', $ansTwo, '0'), 
-          (NULL, '$questioinID', $ansThree, '0'), 
-          (NULL, '$questioinID', $ansFour, '1');";
+          //Insert answers 
+          $sql = "INSERT INTO `options`(`optionID`, `questionID`, `option_one`, `option_two`, `option_three`, `option_four`, `correct_option`) VALUES 
+          (NULL, '$qID', '$ansOne', '$ansTwo', '$ansThree', '$ansFour', '$ansThree')";
           mysqli_query($conn, $sql);
           //does the admin wish to continue adding questions?
           if(isset($_POST['next'])){ //yes
