@@ -20,8 +20,8 @@
     }
     else{
       //Check if input characters are valid
-      if(!preg_match("/^[a-zA-Z]*$/", $ansOne) || 
-      !preg_match("/^[a-zA-Z]*$/", $ansTwo) || !preg_match("/^[a-zA-Z]*$/", $ansThree) || !preg_match("/^[a-zA-Z]*$/", $ansFour)){
+      if(!preg_match("/^[a-zA-Z0-9 \s]+$/", $ansOne) || 
+      !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansTwo) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansThree) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $ansFour)){
         header("Location: ../newQuestion.php?input=invalid");
         exit();
       }
