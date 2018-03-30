@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 	}
 	else{
 		//Check if input characters are valid
-		if(!preg_match("/^[a-zA-Z0-9 \s]+$/", $fname) || !preg_match("/^[a-zA-Z0-9 \s]+$/", $lname)){
+		if(!preg_match("/^[a-zA-Z]+$/", $fname) || !preg_match("/^[a-zA-Z]+$/", $lname)){
 			header("Location: ../register.php?registration=invalid");
 			exit();
 		}
