@@ -20,7 +20,7 @@ else{
 ?>
 
 <?php
-  //Populating user drop down select with username array
+  //Populating user drop down select with category details array
   $sql = "SELECT * FROM `categories`";
   $query = mysqli_query($conn, $sql);
   while($array[] = $query-> fetch_object());
