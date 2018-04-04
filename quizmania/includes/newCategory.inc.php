@@ -1,14 +1,14 @@
 <?php
 
   if(isset($_POST['submit'])){
-	
+
 	include ("dbh.inc.php");
-	
+
 	//Prohibit malicious code
     $title = mysqli_real_escape_string($conn, $_POST['catTitle']);
     $level =  mysqli_real_escape_string($conn, $_POST['abilityLevel']);
     $date = date("Y-m-d");
-    
+
     //Check for empty fields
     if(empty($title)){
       header("Location: ../newCategory.php?title=empty");

@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QuizMania</title>
+	<link rel="stylesheet" type="text/css" href="newStyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+<section class="hero is-fullheight gradient-background">
+
 <?php
 	include_once 'header.php';
 	include_once 'includes/dbh.inc.php';
@@ -27,23 +38,34 @@ else{
   array_pop($array);
 ?>
 
-	<section class="main-container">
-		<div class="main-wrapper">
-			<h2>Remove Category</h2>
-			<form class="register-form" action="includes/removeCategory.inc.php" method="POST">
-				<label for="categorySelect"><b>Select Desired Category to remove: </b></label>
-         <select name="categorySelect">
-          <?php foreach($array as $option) : ?>
-          <option value="<?php echo $option->categoryID; ?>"><?php echo$option->categoryTitle;?></option>
-          <?php endforeach; ?>
-        </select><br>
-        <button type="submit" name="submit">Confirm</button>
-			</form>
-		</div>
-	</section>
+<div class="hero-body">
+	<div class="container">
+		<p class="title is-size-2 has-text-white has-text-centered">Remove a Category</p>
+		<form class="control has-text-centered" action="includes/removeCategory.inc.php" method="POST">
+			<div class="box at-center limit-width">
+				<div class="field at-center input-width">
+					<label class="label has-text-left" for="categorySelect">Select a category to remove:</label>
+					<div class="control">
+						<div class="select">
+							<select name="categorySelect">
+	 							<?php foreach($array as $option) : ?>
+	 								<option value="<?php echo $option->categoryID; ?>"><?php echo $option->categoryTitle;?></option>
+	 							<?php endforeach; ?>
+	 						</select>
+						</div>
+					</div>
+				</div><br/>
+				<div class="field input-width at-center">
+					<div class="control has-text-centered">
+						<button class="button is-primary is-rounded" type="submit" name="submit">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 
-	
-  
 <?php
 	include_once 'footer.php';
 ?>
+</section>
