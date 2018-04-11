@@ -36,7 +36,7 @@
 					echo '</b></p><p class="subtitle has-text-white">Put your knowledge to the test by answering the following quizzes.</p>';
 					echo '</br>';
 					echo '<div class="container">';
-			
+
           foreach($array as $catFull) :
 
 					echo 		'<div class="box limit-width at-center"><ul>';
@@ -46,7 +46,7 @@
 					echo    '<li><b>Number Of questions: </b>10</li>';
 					echo    '<li><b>Time to complete: </b>10 Minutes</li>';
 					echo    '</br>';
-					echo 	'<form action="questions.php?n=1" method="POST">';
+					echo 	'<form action="questions.php" method="POST">';
 					echo    '<input type="hidden" type="submit" name="category_id" value="'.$catFull->categoryID.'"/>';
 					echo    '<button class="button is-danger is-rounded" type="submit" name="question_refine" class="startquiz">Start Quiz</button>';
 					echo 	'</form>';
