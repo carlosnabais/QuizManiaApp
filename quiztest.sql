@@ -271,13 +271,13 @@ ALTER TABLE `options`
 -- Constraints for table `questions`
 --
 ALTER TABLE `questions`
-  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`);
+  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `results`
 --
 ALTER TABLE `results`
-  ADD CONSTRAINT `REULTS_CATEGORY_FK` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`),
+  ADD CONSTRAINT `REULTS_CATEGORY_FK` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`) ON DELETE CASCADE,
   ADD CONSTRAINT `REULTS_FK` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `REULTS_QUESTIONS_FK` FOREIGN KEY (`questionID`) REFERENCES `questions` (`questionID`);
 
@@ -285,7 +285,7 @@ ALTER TABLE `results`
 -- Constraints for table `scores`
 --
 ALTER TABLE `scores`
-  ADD CONSTRAINT `SCORES_CATEGORY_FK` FOREIGN KEY (`categoryID`) REFERENCES `results` (`categoryID`),
+  ADD CONSTRAINT `SCORES_CATEGORY_FK` FOREIGN KEY (`categoryID`) REFERENCES `results` (`categoryID`) ON DELETE CASCADE,
   ADD CONSTRAINT `SCORES_USER_FK` FOREIGN KEY (`userID`) REFERENCES `results` (`userID`);
 COMMIT;
 

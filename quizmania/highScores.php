@@ -31,6 +31,7 @@
       $sql1 =   "SELECT users.username, categories.categoryTitle, scores.score * 10 AS scores FROM scores
                 INNER JOIN users ON users.userID = scores.userID
                 INNER JOIN categories ON categories.categoryID = scores.categoryID
+                WHERE users.adminAccess = 0
                 ORDER BY scores DESC;";
 
       $query2 = mysqli_query($conn, $sql1);
