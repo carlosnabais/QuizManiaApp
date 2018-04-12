@@ -71,7 +71,7 @@
 														</p><br/>
 														<p class="level-item">
 															<p class="has-text-centered is-size-5 title">
-																<a class="has-text-white" href="removeCategory.php">Remove Category</a>
+																<a class="has-text-white" href="removeCategory.php">Edit Category</a>
 															</p>
 														</p><br/>
 														<p class="level-item">

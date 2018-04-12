@@ -29,8 +29,13 @@ else{
 }
 ?>
 <?php
+if($_GET){
+  $cID = $_GET['category'];
+}
+else{
+  $cID = mysqli_real_escape_string($conn, $_POST['categorySelect']);
+}
 
-$cID = mysqli_real_escape_string($conn, $_POST['categorySelect']);
 
   //still to refine so that only details of category selected are shown
   $sql = "SELECT questions.questionID, questionOutput, questionHint, options.optionID, options.option_one, options.option_two, options.option_three, options.option_four, options.correct_option 

@@ -2,7 +2,7 @@
 
 if (isset($_POST['update'])){
   include ("dbh.inc.php");
-  //$categoryID = mysqli_real_escape_string($conn,$_POST['categoryID']);
+  $categoryID = mysqli_real_escape_string($conn,$_POST['categoryID']);
   $questionID = mysqli_real_escape_string($conn,$_POST['questionID']);
   
   $questionOutput = mysqli_real_escape_string($conn,$_POST['qText']);
@@ -44,7 +44,7 @@ if (isset($_POST['update'])){
           correct_option='$optionOne'
           WHERE questionID='$questionID';";
           mysqli_query ($conn, $sqlO);
-          header("Location: ../editCategory.php");
+          header("Location: ../editCategory.php?category=".$categoryID);
           exit();
         }
         elseif($correctOption == 2){
@@ -56,7 +56,7 @@ if (isset($_POST['update'])){
           correct_option='$optionTwo'
           WHERE questionID='$questionID';";
           mysqli_query ($conn, $sqlO);
-          header("Location: ../editCategory.php");
+          header("Location: ../editCategory.php?category=".$categoryID);
           exit();
         }
         elseif($correctOption == 3){
@@ -68,7 +68,7 @@ if (isset($_POST['update'])){
           correct_option='$optionThree'
           WHERE questionID='$questionID';";
           mysqli_query ($conn, $sqlO);
-          header("Location: ../editCategory.php");
+          header("Location: ../editCategory.php?category=".$categoryID);
           exit();
         }
         elseif($correctOption ==4 ){
@@ -80,7 +80,7 @@ if (isset($_POST['update'])){
           correct_option='$optionFour'
           WHERE questionID='$questionID';";
           mysqli_query ($conn, $sqlO);
-          header("Location: ../editCategory.php");
+          header("Location: ../editCategory.php?category=".$categoryID);
           exit();
         }
       }
