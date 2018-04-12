@@ -48,7 +48,12 @@
     
     	include ("dbh.inc.php");
     //Populating user drop down select with username array
-    $sql = "SELECT * FROM `Categories`";
+    $sql = "SELECT c.`categoryID`,`categoryTitle`,`categoryLevel`,`dateUpdated`
+              FROM `categories` c
+              LEFT JOIN `questions` q
+              ON c.`categoryID` = q.`categoryID`
+              GROUP BY q.categoryID
+              HAVING COUNT(q.categoryID) >= 2";
     $query = mysqli_query($conn, $sql);
     while($array[] = $query-> fetch_object());
     array_pop($array);

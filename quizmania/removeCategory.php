@@ -41,7 +41,7 @@ else{
 <div class="hero-body">
 	<div class="container">
 		<p class="title is-size-2 has-text-white has-text-centered">Remove a Category</p>
-		<form class="control has-text-centered" action="includes/removeCategory.inc.php" method="POST">
+		<form class="control has-text-centered" action="editCategory.php" method="POST">
 			<div class="box at-center limit-width">
 				<div class="field at-center input-width">
 					<label class="label has-text-left" for="categorySelect">Select a category to remove:</label>
