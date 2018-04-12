@@ -31,9 +31,8 @@
         $sql = "INSERT INTO `questions`(`questionID`, `categoryID`, `questionOutput`, `questionHint`) VALUES (NULL, '$catID', '$qText', '$qHint')";
         mysqli_query($conn, $sql);
 
-        if(mysqli_query($conn, $sql)){
           $qID = mysqli_insert_id($conn);
-        }
+       
 
         if($correctAns == 1){
           //Insert answers
