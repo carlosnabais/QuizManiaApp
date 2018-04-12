@@ -25,7 +25,7 @@
           if ($resultCheck['adminAccess'] == false ){
             //welcome message for normal user
             echo '<div class="container has-text-centered">
-										<p class="has-text-white is-size-3 title is-spaced">Welcome <b>'.$resultCheck['firstName']."!";
+										<p class="has-text-white is-size-3 title is-spaced">Welcome, <b>'.$resultCheck['firstName']."!";
           }
           else if($resultCheck['adminAccess'] == true){
             //welcome message for admin to inform them they are at admin level

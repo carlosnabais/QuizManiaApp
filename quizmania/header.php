@@ -48,6 +48,11 @@
 										if ($resultCheck['adminAccess'] == false ){
 											 //if user is logged in
 											echo '<p class="level-item">
+															<p class="has-text-centered is-size-5 title">
+																<a class="has-text-white" href="highScores.php">High Scores</a>
+															</p>
+														</p><br/>
+														<p class="level-item">
 															<form action="includes/logout.inc.php" method="POST">
 																<button class="button is-warning is-rounded" type="submit" name="submit">Logout</button>
 															</form>
