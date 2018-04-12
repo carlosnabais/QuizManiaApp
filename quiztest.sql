@@ -43,7 +43,9 @@ INSERT INTO `categories` (`categoryID`, `categoryTitle`, `categoryLevel`, `dateU
 (1, 'Sports', 'Low', '2018-03-22'),
 (2, 'Biology', 'Intermediate', '2018-03-23'),
 (3, 'Maths', 'Low', '2018-03-26'),
-(4, 'Music', 'Low', '2018-03-27');
+(4, 'Music', 'Low', '2018-03-27'),
+(5, 'History', 'High', '2018-03-12'),
+(6, 'Networking', 'Low', '2018-03-12');
 
 -- --------------------------------------------------------
 
@@ -66,10 +68,38 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`optionID`, `questionID`, `option_one`, `option_two`, `option_three`, `option_four`, `correct_option`) VALUES
-(1, 1, '30', '50', '60', '70', '70'),
+(1, 1, '28', '50', '60', '15', '15'),
 (2, 2, '10', '11', '8', '7', '11'),
 (3, 3, '3', '4', '5', '8', '5'),
-(4, 4, '1', '5', '4', '6', '5');
+(4, 4, '1', '5', '4', '6', '5'),
+(5, 5, 'Liberia','Norway','New Zealand','Burma','Liberia'),
+(6, 6,'1806','1866','1896','1836','1896'),
+(7,7,'Napoleonic Wars','World War I','Mongol invasions of Japan','Bosnian War','World War I'),
+(8,8, 'Thirty Years War','Spanish conquest of the Aztec Empire','Franco-Dutch War','French Wars of Religion','French Wars of Religion'),
+(9,8,'1533-1603','1808-1873','1633-1703','1769-1849','1633-1703'),
+(10,9,'Invasion of Tibet','Algerian War','Romanian Revolution','Turkish War of Independence','Invasion of Tibet'),
+(11,10,'Alexander Hamilton','Pancho Villa','Francis Drake','John Cabot','Alexander Hamilton'),
+(12,11,'St. John','St. Bartholomew','St. Andrew','St. Peter','St. Peter'),
+(13,12,'Athens criteria','Valencia criteria','Copenhagen criteria','Bristol criteria','Valencia criteria'),
+(14, 13, 'Spain','Portugal','United Kingdom','France','Spain'),
+(15,15,'30','15','30','22','28'),
+(16,16,'England','Italy','Ireland','France','Ireland'),
+(17,17,'6','3','1','5','6'),
+(18,18,'9.40s','9.90s','','10.00s','9.58s'),
+(19,19,'Beijing','Tokyo','Barcelona','Warsaw','Tokyo'),
+(20,20,'10ft','8ft','7.5ft','11ft','10ft'),
+(21,21,'Dame Jessica Ennis-Hall','Sir Mo Farrah','Sir Rodger Bannister','Sir Chris Hoy','Sir Rodger Bannister'),
+(22,22,'Spain','France','Romania','Norway','France'),
+(23, 23, '32 bits','128 bytes','64 bits','128 bits','128 bits'),
+(24, 24,'NAT','Static','Dynamic','PAT','PAT'),
+(25,25,'copy running backup','copy running-config startup-config','config mem','wr mem','copy running-config startup-config'),
+(26,26,'100 kbps','1 Mbps','2 Mbps','10 Mbps','10 Mbps'),
+(27, 27, 'NCP','ISDN','HDLC','LCP','NCP'),
+(28, 28, 'line telnet 0 4','line aux 0 4','line vty 0 4','line con 0','line vty 0 4'),
+(29,29,'IP','TCP','UDP','ARP','UDP'),
+(30,30,'show access-lists','show interface','show ip interface','show interface access-lists','show ip interface'),
+(31,31,'Session layer','Physical layer','Data Link layer','Application layer','Physical layer'),
+(32,32,'TCP','ARP','ICMP','BootP','ICMP');
 
 -- --------------------------------------------------------
 
@@ -89,11 +119,38 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`questionID`, `categoryID`, `questionOutput`, `questionHint`) VALUES
-(1, 1, 'How many sports were included in the Pyeong Chang 2018 Winter Olympic Games?', 'Less than half the number of sports in the Rio 2016 Summer Olympic Games.'),
+(1, 1, 'How many sports were included in the Pyeong Chang 2018 Winter Olympic Games?', 'Almost half the number of sports in the Rio 2016 Summer Olympic Games.'),
 (2, 1, 'HOW MANY PLAYERS IN A FOOTBALL TEAM?', 'MORE THAN FIVE'),
 (3, 1, 'Futsal Team player count?', 'Less then 11'),
-(4, 2, 'How many Plants if you have 5 pots?', 'Think');
-
+(4, 2, 'How many Plants if you have 5 pots?', 'Think'),
+(5, 5, 'President William Tubman is or was a leader in which country?', 'Within Africa'),
+(6, 5, 'When did the Anglo-Zanzibar War happen?', ''),
+(7, 5, 'Brusilov Offensive occurred in which war or conflict?', 'It began in 1914'),
+(8, 5, 'Which conflict occurred in the years 1562-1598?', ''),
+(9, 5, 'When did Samuel Pepys live? ', ''),
+(10, 5, 'Which conflict occurred in the years 1950-1951?', 'Involved the Peoples Republic of China'),
+(11, 5, 'Which historical figure lived between the years ~1755/1757-1804?', 'They were American'),
+(12, 5, 'According to the Roman Catholic Church, who was their first pope?', ''),
+(13, 5, 'Since 1993, the criteria that define whether a country is eligible to join the European Union, is named after which city?', 'In Spain'),
+(14, 5, 'Peru (1821) gained its independence from which country?', ''),
+(15, 1, 'How many sports were included in the Rio 2016 Summer Olympic Games?', 'Less than 30'),
+(16, 1, 'What country won the 2018 Six Nations Rugby Championship', 'Within British Isles'),
+(17, 1, 'In American and Canadian Football how many points does a team earn with a touch down?', ''),
+(18, 1, 'What is the current Mens 100m world record?','within 9.5 and 10 seconds'),
+(19, 1, 'Where will the 2020 Summer Olympic Games take place?', 'In Asia'),
+(20,1, 'How high off the ground does the Basketball rim in the unit of measurement of feet?', 'around 3 metres'),
+(21,1,'Who was the first British person to run 1 mile in under 4 minutes?', ''),
+(22, 1, 'What country won the IHF World Womens Handball Championship in 2017?', ''),
+(23, 6, 'How long is an IPv6 address?', ''),
+(24, 6, 'What flavor of Network Address Translation can be used to have one IP address allow many users to connect to the global Internet?',''),
+(25, 6, 'What command is used to create a backup configuration?',''),
+(26, 6, 'You have 10 users plugged into a hub running 10Mbps half-duplex. There is a server connected to the switch running 10Mbps half-duplex as well. How much bandwidth does each host have to the server?', ''),
+(27, 6, 'What protocol does PPP use to identify the Network layer protocol?',''),
+(28, 6, 'Which of the following commands will allow you to set your Telnet password on a Cisco router?', ''),
+(29,6, 'Which protocol does DHCP use at the Transport layer?', ''),
+(30, 6, 'Which command is used to determine if an IP access list is enabled on a particular interface?', ''),
+(31,6, 'Where is a hub specified in the OSI model?', ''),
+(32, 6, 'Which protocol is used to send a destination network unknown message back to originating hosts?', '');
 -- --------------------------------------------------------
 
 --
