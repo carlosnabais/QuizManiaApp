@@ -2,35 +2,16 @@
 <html>
 <head>
 	<title>QuizMania</title>
-	<link rel="stylesheet" type="text/css" href="../newStyle.css">
+	<link rel="stylesheet" type="text/css" href="newStyle.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
 <section class="hero is-fullheight gradient-background">
-  <div class="hero-head">
-      <div class="container">
-        <nav class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <p class="has-text-centered is-size-3">
-                <a class="has-text-white" href="../index.php"><b>QUIZ</b>Mania</a>
-              </p>
-            </div>
-          </div>
-          <div class="level-right">
-            <div class="level-item">
-              <p class="has-text-centered is-size-5 title">
-                <a class="has-text-white" href="../highScores.php">High Scores</a>
-              </p>
-            </div><br/>
-            <div class="level-item">
-              <form action="includes/logout.inc.php" method="POST">
-                <button class="button is-warning is-rounded" type="submit" name="submit">Logout</button>
-              </form>
-            </div>
-          </div>
-        </nav>
+<?php
+  include 'header.php';
+?>
+
 <?php
 
     // //Check if score is score is set = set_error_handler
@@ -78,7 +59,7 @@
     // }
 
     if(isset($_POST['submit'])) {
-        include 'dbh.inc.php';
+        include 'includes/dbh.inc.php';
 
         $userID = $_POST['uID'];
 
@@ -140,27 +121,27 @@
 
         }
 
-        // if($choice4 == $correctAns4) {
-        //   $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID4', '$cID', '$choice4', '$correctAns4', '1')";
-        //   mysqli_query($conn, $query);
-        //
-        // } else {
-        //   $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID4', '$cID', '$choice4', '$correctAns4', '0')";
-        //   mysqli_query($conn, $query);
-        //
-        // }
-        //
-        // if($choice5 == $correctAns5) {
-        //   $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID5', '$cID', '$choice5', '$correctAns5', '1')";
-        //   mysqli_query($conn, $query);
-        //
-        // } else {
-        //   $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID5', '$cID', '$choice5', '$correctAns5', '0')";
-        //   mysqli_query($conn, $query);
-        //
-        // }
+        if($choice4 == $correctAns4) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID4', '$cID', '$choice4', '$correctAns4', '1')";
+          mysqli_query($conn, $query);
 
-        $sql = "SELECT SUM(isCorrect)*10 AS score FROM `results` WHERE results.userID = $userID AND results.categoryID = $cID ";
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID4', '$cID', '$choice4', '$correctAns4', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+        if($choice5 == $correctAns5) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID5', '$cID', '$choice5', '$correctAns5', '1')";
+          mysqli_query($conn, $query);
+
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID5', '$cID', '$choice5', '$correctAns5', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+        $sql = "SELECT SUM(isCorrect) * 10 AS score FROM `results` WHERE results.userID = $userID AND results.categoryID = $cID ";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
@@ -176,8 +157,9 @@
         }
 
     }
-
 ?>
-<div class="hero-foot"></div>
+<?php
+  include 'footer.php';
+?>
 </section>
 </body>

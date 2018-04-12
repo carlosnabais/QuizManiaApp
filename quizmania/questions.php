@@ -25,7 +25,7 @@
               echo '<div class="hero-body">';
 
               echo '<div class="container has-text-centered">';
-              echo '<form method="post" action ="includes/questionAddUp.inc.php">';
+              echo '<form method="post" action ="questionAddUp.php">';
 
             foreach($array as $questFull) :
               echo    '</br>';
@@ -33,7 +33,7 @@
               echo    '<div class="box limit-width at-center"><ul>';
               echo    '<li><b>Question: </b><br/>';
               echo    '<input type="hidden" value="'.$questFull->questionID.'" name="qID'.$i.'">';
-              echo    '<input type="hidden" value="'.$questFull->categoryID.'" name="cID'.$i.'">';
+              echo    '<input type="hidden" value="'.$questFull->categoryID.'" name="cID">';
               echo    '<input type="hidden" value="'.$questFull->correct_option.'" name="correctAns'.$i.'">';
               echo    '<p>'.$questFull->questionOutput.'</p>';
               echo    '<input type="hidden" name="uID" value="'.$userID.'"/>';

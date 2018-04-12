@@ -19,25 +19,28 @@
     <div class="at-center"><br/>
     <?php
 
-      $sql =    "DELETE FROM scores;
-                INSERT INTO scores(userID,categoryID,score)
+			$sql1 = "DELETE FROM scores;";
+			$query1 = mysqli_query($conn, $sql1);
+
+
+			$sql2 =    "INSERT INTO scores(userID,categoryID,score)
                 SELECT userID, categoryID, SUM(isCorrect)
                 FROM results
                 GROUP BY userID, categoryID;";
 
 
-      $query = mysqli_query($conn, $sql);
+      $query2 = mysqli_query($conn, $sql2);
 
-      $sql1 =   "SELECT users.username, categories.categoryTitle, scores.score * 10 AS scores FROM scores
+      $sql3 =   "SELECT users.username, categories.categoryTitle, scores.score * 10 AS scores FROM scores
                 INNER JOIN users ON users.userID = scores.userID
                 INNER JOIN categories ON categories.categoryID = scores.categoryID
                 WHERE users.adminAccess = 0
                 ORDER BY scores DESC;";
 
-      $query2 = mysqli_query($conn, $sql1);
+      $query3 = mysqli_query($conn, $sql3);
 
 
-      if ($query2->num_rows > 0) {
+      if ($query3->num_rows > 0) {
 
           echo "<table class='table is-bordered at-center'><thead>
                 <tr><th class='has-text-centered title is-6'>USERNAME</th>
@@ -46,7 +49,7 @@
                 </thead>";
 
           // output data of each row
-          while($row = $query2->fetch_assoc()) {
+          while($row = $query3->fetch_assoc()) {
               echo "<tbody><tr>
                     <td class='has-text-centered'>".$row["username"]."</td>
                     <td class='has-text-centered'>".$row["categoryTitle"]."</td>
