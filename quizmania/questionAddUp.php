@@ -11,52 +11,7 @@
 <?php
   include 'header.php';
 ?>
-
 <?php
-
-    // //Check if score is score is set = set_error_handler
-    // if(!isset($_SESSION['score'])){
-    //     $_SESSION['score'] = 0;  //If score is not set, it is not there, then we crete one ans set to 0
-    // }
-    //
-    // if($_POST){
-    //     // $number = $_POST['number'];
-    //     $selected_choice = $_POST['choice'];
-    //     $next = $number+1;
-    //     $category = $_POST['categoryid'];
-    //
-    //     /* Get total questions */
-    //
-    //     $query = "SELECT * FROM questions WHERE categoryID = $category AND questionID != ";
-    //     /* Get results */
-    //     $results = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    //     $total = $results->num_rows;
-    //
-    //     /* Get correct choice */
-    //     $query = "SELECT * FROM options WHERE questionID = $number AND correct_option = 1";
-    //     //Get result
-    //     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    //     //Get row
-    //     $row = $result->fetch_assoc();
-    //     //Set correct choice
-    //
-    //     $correct_choice = $row['id'];
-    //     //Compare
-    //
-    //     if($correct_choice == $selected_choice){
-    //         // Answer is correct
-    //         $_SESSION['score']++;
-    //     }
-    //
-    // // Check if it the last session: In case it is --> Go to the last session
-    //
-    //     if($number == $total){
-    //         header("Location: final.php");
-    //         exit();
-    //     }else {
-    //         header("Location: question.php?n=".$next);
-    //     }
-    // }
 
     if(isset($_POST['submit'])) {
         include 'includes/dbh.inc.php';
@@ -66,22 +21,37 @@
         $choice1 = $_POST['choice1'];
         $choice2 = $_POST['choice2'];
         $choice3 = $_POST['choice3'];
-        // $choice4 = $_POST['choice4'];
-        // $choice5 = $_POST['choice5'];
+        $choice4 = $_POST['choice4'];
+        $choice5 = $_POST['choice5'];
+				$choice6 = $_POST['choice6'];
+				$choice7 = $_POST['choice7'];
+				$choice8 = $_POST['choice8'];
+				$choice9 = $_POST['choice9'];
+				$choice10 = $_POST['choice10'];
 
         $qID1 = $_POST['qID1'];
         $qID2 = $_POST['qID2'];
         $qID3 = $_POST['qID3'];
-        // $qID4 = $_POST['qID4'];
-        // $qID5 = $_POST['qID5'];
+        $qID4 = $_POST['qID4'];
+        $qID5 = $_POST['qID5'];
+				$qID6 = $_POST['qID6'];
+				$qID7 = $_POST['qID7'];
+				$qID8 = $_POST['qID8'];
+				$qID9 = $_POST['qID9'];
+				$qID10 = $_POST['qID10'];
 
         $cID = $_POST['cID'];
 
         $correctAns1 = $_POST['correctAns1'];
         $correctAns2 = $_POST['correctAns2'];
         $correctAns3 = $_POST['correctAns3'];
-        // $correctAns4 = $_POST['correctAns4'];
-        // $correctAns5 = $_POST['correctAns5'];
+        $correctAns4 = $_POST['correctAns4'];
+        $correctAns5 = $_POST['correctAns5'];
+				$correctAns6 = $_POST['correctAns6'];
+				$correctAns7 = $_POST['correctAns7'];
+				$correctAns8 = $_POST['correctAns8'];
+				$correctAns9 = $_POST['correctAns9'];
+				$correctAns10 = $_POST['correctAns10'];
 
         $sql = "SELECT * FROM results  WHERE results.userID = '$userID' AND results.categoryID = '$cID';";
         mysqli_query($conn, $sql);
@@ -141,6 +111,57 @@
 
         }
 
+				if($choice6 == $correctAns6) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID6', '$cID', '$choice6', '$correctAns6', '1')";
+          mysqli_query($conn, $query);
+
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID6', '$cID', '$choice6', '$correctAns6', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+				if($choice7 == $correctAns7) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID7', '$cID', '$choice7', '$correctAns7', '1')";
+          mysqli_query($conn, $query);
+
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID7', '$cID', '$choice7', '$correctAns7', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+				if($choice8 == $correctAns8) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID8', '$cID', '$choice8', '$correctAns8', '1')";
+          mysqli_query($conn, $query);
+
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID8', '$cID', '$choice8', '$correctAns8', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+				if($choice9 == $correctAns9) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID9', '$cID', '$choice9', '$correctAns9', '1')";
+          mysqli_query($conn, $query);
+
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID9', '$cID', '$choice9', '$correctAns9', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+				if($choice10 == $correctAns10) {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID10', '$cID', '$choice10', '$correctAns10', '1')";
+          mysqli_query($conn, $query);
+
+        } else {
+          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID10', '$cID', '$choice10', '$correctAns10', '0')";
+          mysqli_query($conn, $query);
+
+        }
+
+				// Display scores after quiz
         $sql = "SELECT SUM(isCorrect) * 10 AS score FROM `results` WHERE results.userID = $userID AND results.categoryID = $cID ";
         $result = mysqli_query($conn, $sql);
 

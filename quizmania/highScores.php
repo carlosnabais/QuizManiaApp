@@ -27,18 +27,15 @@
                 SELECT userID, categoryID, SUM(isCorrect)
                 FROM results
                 GROUP BY userID, categoryID;";
-
-
       $query2 = mysqli_query($conn, $sql2);
+
 
       $sql3 =   "SELECT users.username, categories.categoryTitle, scores.score * 10 AS scores FROM scores
                 INNER JOIN users ON users.userID = scores.userID
                 INNER JOIN categories ON categories.categoryID = scores.categoryID
                 WHERE users.adminAccess = 0
                 ORDER BY scores DESC;";
-
       $query3 = mysqli_query($conn, $sql3);
-
 
       if ($query3->num_rows > 0) {
 
