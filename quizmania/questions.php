@@ -53,7 +53,7 @@ foreach($array as $questFull) {
   $i++;
   if($i == 11) break;
 }
-  echo    '<br/><button class="button is-danger is-rounded" name="submit">Submit</button></form></div></div><br/><br/><br/>';
+  echo    '<br/><button class="button is-danger is-rounded" name="submit">Submit</button></form></div></div><br/><br/><br/><br/>';
 }
 // else{
 //   echo '<div class="hero-body"><div class="container has-text-left">';
@@ -69,6 +69,7 @@ foreach($array as $questFull) {
         <br/>
         <p class="title is-size-5 has-text-white">TIME LEFT</p>
         <div class="has-text-warning is-size-3 has-text-centered" id="countdown"></div>
+        <br/>
       </div>
     </div>
   </div>
