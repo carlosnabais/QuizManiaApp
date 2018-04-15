@@ -17,41 +17,7 @@
         include 'includes/dbh.inc.php';
 
         $userID = $_POST['uID'];
-
-        $choice1 = $_POST['choice1'];
-        $choice2 = $_POST['choice2'];
-        $choice3 = $_POST['choice3'];
-        $choice4 = $_POST['choice4'];
-        $choice5 = $_POST['choice5'];
-				$choice6 = $_POST['choice6'];
-				$choice7 = $_POST['choice7'];
-				$choice8 = $_POST['choice8'];
-				$choice9 = $_POST['choice9'];
-				$choice10 = $_POST['choice10'];
-
-        $qID1 = $_POST['qID1'];
-        $qID2 = $_POST['qID2'];
-        $qID3 = $_POST['qID3'];
-        $qID4 = $_POST['qID4'];
-        $qID5 = $_POST['qID5'];
-				$qID6 = $_POST['qID6'];
-				$qID7 = $_POST['qID7'];
-				$qID8 = $_POST['qID8'];
-				$qID9 = $_POST['qID9'];
-				$qID10 = $_POST['qID10'];
-
         $cID = $_POST['cID'];
-
-        $correctAns1 = $_POST['correctAns1'];
-        $correctAns2 = $_POST['correctAns2'];
-        $correctAns3 = $_POST['correctAns3'];
-        $correctAns4 = $_POST['correctAns4'];
-        $correctAns5 = $_POST['correctAns5'];
-				$correctAns6 = $_POST['correctAns6'];
-				$correctAns7 = $_POST['correctAns7'];
-				$correctAns8 = $_POST['correctAns8'];
-				$correctAns9 = $_POST['correctAns9'];
-				$correctAns10 = $_POST['correctAns10'];
 
         $sql = "SELECT * FROM results  WHERE results.userID = '$userID' AND results.categoryID = '$cID';";
         mysqli_query($conn, $sql);
@@ -61,105 +27,23 @@
           mysqli_query($conn, $sql);
         }
 
-        if($choice1 == $correctAns1) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID1', '$cID', '$choice1', '$correctAns1', '1')";
-          mysqli_query($conn, $query);
+				for($i = 1; $i < 11; $i++) {
 
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID1', '$cID', '$choice1', '$correctAns1', '0')";
-          mysqli_query($conn, $query);
+					$choice = $_POST['choice' . $i];
+					$qID = $_POST['qID' . $i];
+					$correctAns = $_POST['correctAns' . $i];
 
-        }
+					if($choice == $correctAns) {
+	          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID', '$cID', '$choice', '$correctAns', '1')";
+	          mysqli_query($conn, $query);
 
-        if($choice2 == $correctAns2) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID2', '$cID', '$choice2', '$correctAns2', '1')";
-          mysqli_query($conn, $query);
+	        } else {
+	          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID', '$cID', '$choice', '$correctAns', '0')";
+	          mysqli_query($conn, $query);
 
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID2', '$cID', '$choice2', '$correctAns2', '0')";
-          mysqli_query($conn, $query);
+	        }
 
-        }
-
-        if($choice3 == $correctAns3) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID3', '$cID', '$choice3', '$correctAns3', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID3', '$cID', '$choice3', '$correctAns3', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-        if($choice4 == $correctAns4) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID4', '$cID', '$choice4', '$correctAns4', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID4', '$cID', '$choice4', '$correctAns4', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-        if($choice5 == $correctAns5) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID5', '$cID', '$choice5', '$correctAns5', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID5', '$cID', '$choice5', '$correctAns5', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-				if($choice6 == $correctAns6) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID6', '$cID', '$choice6', '$correctAns6', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID6', '$cID', '$choice6', '$correctAns6', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-				if($choice7 == $correctAns7) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID7', '$cID', '$choice7', '$correctAns7', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID7', '$cID', '$choice7', '$correctAns7', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-				if($choice8 == $correctAns8) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID8', '$cID', '$choice8', '$correctAns8', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID8', '$cID', '$choice8', '$correctAns8', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-				if($choice9 == $correctAns9) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID9', '$cID', '$choice9', '$correctAns9', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID9', '$cID', '$choice9', '$correctAns9', '0')";
-          mysqli_query($conn, $query);
-
-        }
-
-				if($choice10 == $correctAns10) {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID10', '$cID', '$choice10', '$correctAns10', '1')";
-          mysqli_query($conn, $query);
-
-        } else {
-          $query = "INSERT INTO `results` (`userID`, `questionID`, `categoryID`, `option_chosen`, `correct_option`, `isCorrect`) VALUES ('$userID', '$qID10', '$cID', '$choice10', '$correctAns10', '0')";
-          mysqli_query($conn, $query);
-
-        }
+				}
 
 				// Display scores after quiz
         $sql = "SELECT SUM(isCorrect) * 10 AS score FROM `results` WHERE results.userID = $userID AND results.categoryID = $cID ";
@@ -176,6 +60,15 @@
                   </div>';
           }
         }
+
+				$sql1 = "DELETE FROM scores;";
+				$query1 = mysqli_query($conn, $sql1);
+
+				$sql2 =   "INSERT INTO scores(userID,categoryID,score)
+	                SELECT userID, categoryID, SUM(isCorrect)
+	                FROM results
+	                GROUP BY userID, categoryID;";
+	      $query2 = mysqli_query($conn, $sql2);
 
     }
 ?>
