@@ -10,7 +10,7 @@
     $date = date("Y-m-d");
 
     //Check for empty fields
-    if(empty($title)){
+    if(empty($title) || empty($level)){
       header("Location: ../newCategory.php?title=empty");
       exit();
     }

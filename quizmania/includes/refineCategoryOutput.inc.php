@@ -53,7 +53,7 @@
               LEFT JOIN `questions` q
               ON c.`categoryID` = q.`categoryID`
               GROUP BY q.categoryID
-              HAVING COUNT(q.categoryID) >= 2";
+              HAVING COUNT(q.categoryID) >= 5";
     $query = mysqli_query($conn, $sql);
     while($array[] = $query-> fetch_object());
     array_pop($array);

@@ -57,7 +57,7 @@ else{
 				</div><br/>
 				<div class="field input-width at-center">
 					<div class="control has-text-centered">
-						<button class="button is-primary is-rounded" type="submit" name="submit">Confirm</button>
+						<button class="button is-primary is-rounded" type="submit" name="remove">Confirm</button>
 					</div>
 				</div>
 			</div>

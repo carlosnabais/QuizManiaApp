@@ -19,7 +19,6 @@ if(isset($_SESSION['uID'])){
 					$sql = "SELECT * FROM `users` WHERE `userID` = '".$_SESSION['uID']."' ";
 					$result = mysqli_query($conn, $sql);
 					$resultCheck = mysqli_fetch_array($result);
-					//echo 'You are logged in '.$resultCheck['username'];
 				if ($resultCheck['adminAccess'] == false ){
           header("Location: index.php");
         }
@@ -27,8 +26,7 @@ if(isset($_SESSION['uID'])){
 else{
   header("Location: index.php");
 }
-?>
-<?php
+
 if($_GET){
   $cID = $_GET['category'];
 }
@@ -36,8 +34,74 @@ else{
   $cID = mysqli_real_escape_string($conn, $_POST['categorySelect']);
 }
 
+  $sql="SELECT * FROM `categories`
+            WHERE categoryID='$cID';";
+  $query = $conn -> query($sql);
 
-  //still to refine so that only details of category selected are shown
+  $row = $query->fetch_assoc();
+  //Category detail display form for updating and deletion
+    echo '<br/><br/><br/>
+        <div class="container">
+        <p class="title is-size-2 has-text-white has-text-centered">Edit Category</p>';
+        
+    echo '<form class="control has-text-centred" action="includes/removeCategory.inc.php" method="POST">';
+    echo '<div class="box at-center limit-width">';
+    echo '<input type="hidden" name="categorySelect" value="'. $row['categoryID'] .'">';
+    echo '<label class="label has-text-left" for="categoryTitle">Category Title: </b></label>';
+    echo '<input class="input input-width" type="text" name="categoryTitle" value="' . $row['categoryTitle'] . '" ></br>';
+    if ($row['categoryLevel'] == 'High'){
+    echo'  <div class="field input-width at-center">';
+				echo'	<label for="abilityLevel" class="label has-text-left">Level of Ability</label>';
+				echo '	<div class="control has-text-left">';
+    				echo'<label class="radio">';
+      		echo'		<input type="radio" name="abilityLevel" value="High" checked required> High';
+    			echo'	</label>';
+    				echo'<label class="radio">';
+						echo'	<input type="radio" name="abilityLevel" value="Intermediate" required> Intermediate';
+    				echo'</label>';
+					echo'	<label class="radio">';
+							echo'<input type="radio" name="abilityLevel" value="Low" required> Low';
+    				echo'</label>';
+  				echo'</div>';
+				echo'</div><br/>';
+    }
+    elseif($row['categoryLevel'] == 'Intermediate'){
+    echo'<div class="field input-width at-center">';
+					echo'<label for="abilityLevel" class="label has-text-left">Level of Ability</label>';
+					echo'<div class="control has-text-left">';
+    			echo'	<label class="radio">';
+      			echo'	<input type="radio" name="abilityLevel" value="High" required> High';
+    				echo'</label></br>';
+    				echo'<label class="radio">';
+							echo'<input type="radio" name="abilityLevel" value="Intermediate" checked required> Intermediate';
+    			echo'	</label></br>';
+						echo'<label class="radio">';
+						echo'	<input type="radio" name="abilityLevel" value="Low" required> Low';
+    				echo'</label></br>';
+  				echo'</div>';
+				echo'</div><br/>';
+      
+    }
+    elseif($row['categoryLevel'] == 'Low'){
+      echo'<div class="field input-width at-center">';
+				echo'	<label for="abilityLevel" class="label has-text-left">Level of Ability</label>';
+					echo'<div class="control has-text-left">';
+    				echo'<label class="radio">';
+      			echo'	<input type="radio" name="abilityLevel" value="High" required> High';
+    				echo'</label></br>';
+    				echo'<label class="radio">';
+							echo'<input type="radio" name="abilityLevel" value="Intermediate" required> Intermediate';
+    				echo'</label></br>';
+						echo'<label class="radio">';
+							echo'<input type="radio" name="abilityLevel" value="Low" checked required> Low';
+              echo'	</label></br>';        
+    }
+     echo '<button class="button is-rounded is-primary" type="submit" name="update">Update</button></p>';
+              echo '<p class"control"><button class="button is-rounded is-danger" type="submit" name="remove">Remove</button></p></div>';
+              echo'</div>';
+  				echo'</form></br>';
+			echo'	</div>';
+      
   $sql = "SELECT questions.questionID, questionOutput, questionHint, options.optionID, options.option_one, options.option_two, options.option_three, options.option_four, options.correct_option
           FROM `questions`
           Inner JOIN options
@@ -47,11 +111,9 @@ else{
   while($array[] = $query-> fetch_object());
   array_pop($array);
 
-  echo '<br/><br/><br/>
-        <div class="container">
-        <p class="title is-size-2 has-text-white has-text-centered">Remove a Category</p>';
-  foreach($array as $questionOptionFull) :
 
+  foreach($array as $questionOptionFull) :
+//Question and Option display form for update and deletion
     echo '<form class="control has-text-centered" action="includes/updateCategory.inc.php" method="POST">';
     echo '<div class="box at-center limit-width">';
     echo '<input type="hidden" name="questionID" value="'. $questionOptionFull->questionID .'">';
