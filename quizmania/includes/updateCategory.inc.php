@@ -88,6 +88,7 @@ if (isset($_POST['update'])){
 
 }elseif(isset($_POST['remove'])){
    include ("dbh.inc.php");
+    $categoryID = mysqli_real_escape_string($conn,$_POST['categoryID']);
   $questionID = mysqli_real_escape_string($conn,$_POST['questionID']);
   
   $sql="DELETE From `options` Where `questionID` = '$questionID';";
