@@ -96,6 +96,8 @@ if (isset($_POST['update'])){
   $sqlq="DELETE From `questions` Where `questionID` = '$questionID';";
   mysqli_query($conn, $sqlq);
   
+  header("Location: ../editCategory.php?category=".$categoryID);
+  exit();
 }
 else{
   header("Location: ../index.php");
