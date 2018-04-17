@@ -54,8 +54,6 @@
           endforeach;
 
 					echo '</div></div></div>';
-
-
 				}
         else{
 					echo '<div class="hero-body"><div class="container has-text-left">';
