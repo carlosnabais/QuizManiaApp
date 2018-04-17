@@ -85,7 +85,7 @@ INSERT INTO `options` (`optionID`, `questionID`, `option_one`, `option_two`, `op
 (15,15,'30','15','30','22','28'),
 (16,16,'England','Italy','Ireland','France','Ireland'),
 (17,17,'6','3','1','5','6'),
-(18,18,'9.40s','9.90s','','10.00s','9.58s'),
+(18,18,'9.40s','9.90s','9.58s','10.00s','9.58s'),
 (19,19,'Beijing','Tokyo','Barcelona','Warsaw','Tokyo'),
 (20,20,'10ft','8ft','7.5ft','11ft','10ft'),
 (21,21,'Dame Jessica Ennis-Hall','Sir Mo Farrah','Sir Rodger Bannister','Sir Chris Hoy','Sir Rodger Bannister'),
