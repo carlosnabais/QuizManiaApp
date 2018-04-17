@@ -1,16 +1,16 @@
 <?php
 
 if(isset($_POST['submit'])){
-	
+
 	include ("dbh.inc.php");
-	
+
 	//Prohibit malicious code
 	$fname = mysqli_real_escape_string($conn, $_POST['fname']);
 	$lname = mysqli_real_escape_string($conn, $_POST['lname']);
 	$eml = mysqli_real_escape_string($conn, $_POST['eml']);
 	$uname = mysqli_real_escape_string($conn, $_POST['uname']);
 	$psw = mysqli_real_escape_string($conn, $_POST['psw']);
-	
+
 	//Error Handlers
 	//Check for empty fields
 	if(empty($fname) || empty($lname) || empty($eml) || empty($uname) || empty($psw)){
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
 					//Insert the user into the database
 					$sql = "INSERT INTO `users`(`userID`, `firstName`, `lastName`, `email`, `username`, `users_password`, `adminAccess`) VALUES (NULL,'$fname','$lname','$eml','$uname','$hashedPsw','0')";
 					mysqli_query($conn, $sql);
-					header("Location: ../register.php?registration=success");
+					header("Location: ../index.php?registration=success");
 					exit();
 				}
 			}

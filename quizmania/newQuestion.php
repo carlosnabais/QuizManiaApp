@@ -13,7 +13,6 @@
 	include_once 'header.php';
 	include_once 'includes/dbh.inc.php';
 ?>
-<section class="hero-body">
 <?php
 //test if user is admin to stop standard user from accessing feature
 if(isset($_SESSION['uID'])){

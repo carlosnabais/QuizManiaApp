@@ -13,7 +13,6 @@
 	include_once 'includes/dbh.inc.php';
  	include_once 'includes/refineCategoryOutput.inc.php';
 ?>
-
 			<?php
 				if(isset($_SESSION['uID'])){
 					//this is what is diplayed to the signed in users
@@ -54,7 +53,7 @@
 
           endforeach;
 
-					echo '</div></div>';
+					echo '</div></div></div>';
 
 
 				}
@@ -63,9 +62,8 @@
 					echo '<p class="has-text-white is-size-1 title is-spaced">Welcome to <b>QUIZ</b>Mania</p>';
 					echo '</div></div>';
 				}
+
 			?>
-
-
 <?php
 	include_once 'footer.php';
 ?>
