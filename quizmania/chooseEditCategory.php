@@ -44,7 +44,7 @@ else{
 		<form class="control has-text-centered" action="editCategory.php" method="POST">
 			<div class="box at-center limit-width">
 				<div class="field at-center input-width">
-					<label class="label has-text-left" for="categorySelect">Select a category to remove:</label>
+					<label class="label has-text-left" for="categorySelect">Select a category to edit:</label>
 					<div class="control">
 						<div class="select">
 							<select name="categorySelect">

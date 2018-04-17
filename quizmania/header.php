@@ -64,7 +64,7 @@
 													<hr class="navbar-divider">
 													<a class="navbar-item" href="removeCategory.php">Remove Category</a>
 													<hr class="navbar-divider">
-													<a class="navbar-item" href="chooseEditCategory.php">Edit Category</a>
+													<a class="navbar-item" href="chooseEditCategory.php">Edit Category/Questions</a>
 												</div>
 											</div>
 										</div>
