@@ -43,7 +43,7 @@ else{
     echo '<br/><br/><br/>
         <div class="container">
         <p class="title is-size-2 has-text-white has-text-centered">Edit Category</p>';
-        
+
     echo '<form class="control has-text-centred" action="includes/removeCategory.inc.php" method="POST">';
     echo '<div class="box at-center limit-width">';
     echo '<input type="hidden" name="categorySelect" value="'. $row['categoryID'] .'">';
@@ -51,7 +51,7 @@ else{
     echo '<input class="input input-width" type="text" name="categoryTitle" value="' . $row['categoryTitle'] . '" ></br>';
     if ($row['categoryLevel'] == 'High'){
     echo'  <div class="field input-width at-center">';
-				echo'	<label for="abilityLevel" class="label has-text-left">Level of Ability</label>';
+				echo'	<label for="abilityLevel" class="label has-text-left">Level of Ability:</label>';
 				echo '	<div class="control has-text-left">';
     				echo'<label class="radio">';
       		echo'		<input type="radio" name="abilityLevel" value="High" checked required> High';
@@ -67,7 +67,7 @@ else{
     }
     elseif($row['categoryLevel'] == 'Intermediate'){
     echo'<div class="field input-width at-center">';
-					echo'<label for="abilityLevel" class="label has-text-left">Level of Ability</label>';
+					echo'<label for="abilityLevel" class="label has-text-left">Level of Ability:</label>';
 					echo'<div class="control has-text-left">';
     			echo'	<label class="radio">';
       			echo'	<input type="radio" name="abilityLevel" value="High" required> High';
@@ -80,11 +80,11 @@ else{
     				echo'</label></br>';
   				echo'</div>';
 				echo'</div><br/>';
-      
+
     }
     elseif($row['categoryLevel'] == 'Low'){
-      echo'<div class="field input-width at-center">';
-				echo'	<label for="abilityLevel" class="label has-text-left">Level of Ability</label>';
+      echo'<div class="field input-width at-center has-text-centered">';
+				echo'	<label for="abilityLevel" class="label has-text-left">Level of Ability:</label>';
 					echo'<div class="control has-text-left">';
     				echo'<label class="radio">';
       			echo'	<input type="radio" name="abilityLevel" value="High" required> High';
@@ -94,14 +94,14 @@ else{
     				echo'</label></br>';
 						echo'<label class="radio">';
 							echo'<input type="radio" name="abilityLevel" value="Low" checked required> Low';
-              echo'	</label></br>';        
+              echo'	</label></br></br></div>';
     }
-     echo '<button class="button is-rounded is-primary" type="submit" name="update">Update</button></p>';
-              echo '<p class"control"><button class="button is-rounded is-danger" type="submit" name="remove">Remove</button></p></div>';
-              echo'</div>';
-  				echo'</form></br>';
-			echo'	</div>';
-      
+      echo '<div class="field is-grouped at-center"><div class="control"><button class="button is-rounded is-primary" type="submit" name="update">Update</button></div>';
+      echo '<div class"control"><button class="button is-rounded is-danger" type="submit" name="remove">Remove</button></div>';
+      echo'</div></div>';
+  		echo'</form>';
+			echo'	</div></div></br>';
+
   $sql = "SELECT questions.questionID, questionOutput, questionHint, options.optionID, options.option_one, options.option_two, options.option_three, options.option_four, options.correct_option
           FROM `questions`
           Inner JOIN options
